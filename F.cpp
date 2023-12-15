@@ -17,7 +17,6 @@ int main()
     {
         cin >> v[i];
     }
-    sort(v.begin(), v.end());
     while (q--)
     {
         char type;
@@ -28,6 +27,7 @@ int main()
             cin >> a >> b;
 
             int count = 0;
+            sort(v.begin(), v.end());
             for (int i = 0; i < n; ++i)
             {
                 if (v[i] >= a && v[i] <= b)
