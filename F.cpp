@@ -11,7 +11,6 @@ int main()
     faster;
     int n, q;
     cin >> n >> q;
-
     vector<int> v(n);
     for (int i = 0; i < n; ++i)
     {
@@ -25,9 +24,7 @@ int main()
         {
             int a, b;
             cin >> a >> b;
-
             int count = 0;
-            sort(v.begin(), v.end());
             for (int i = 0; i < n; ++i)
             {
                 if (v[i] >= a && v[i] <= b)
