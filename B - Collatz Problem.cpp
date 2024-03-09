@@ -24,7 +24,7 @@ int32_t main()
         auto it = find(all(v), n);
         if (it != v.end())
         {
-            cout << cnt+1 << '\n';
+        cout << cnt+1 << '\n';
             return 0;
         }
         cnt++;
