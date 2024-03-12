@@ -1,0 +1,1 @@
+{"name":"Local: B - B56","url":"/home/tamim/Desktop/vjudge_problem/B - B56.cpp","tests":[{"id":1710260880205,"input":"2\n3\n40 30 50\n2 4 20\n1\n0\n10","output":"800\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tamim/Desktop/vjudge_problem/B - B56.cpp","group":"local","local":true}
