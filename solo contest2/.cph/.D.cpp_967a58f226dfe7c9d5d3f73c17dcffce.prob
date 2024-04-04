@@ -1,0 +1,1 @@
+{"name":"Local: D","url":"/home/tamim/Desktop/Vjudge/solo contest2/D.cpp","tests":[{"id":1712249099787,"input":"3\n3\n1 2 3\n3\n3 2 1\n5\n1 4 2 5 3","output":""},{"id":1712251638565,"input":"2\n2 1\n3 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tamim/Desktop/Vjudge/solo contest2/D.cpp","group":"local","local":true}
