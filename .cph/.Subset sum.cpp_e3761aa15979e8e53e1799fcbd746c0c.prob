@@ -1,0 +1,1 @@
+{"name":"Local: Subset sum","url":"/home/tamim/Desktop/Vjudge/Subset sum.cpp","tests":[{"id":1716608843361,"input":"6 0\n-1 2 -3 4 -5 6\n5 0\n-7 -3 -2 5 8","output":"4 \n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tamim/Desktop/Vjudge/Subset sum.cpp","group":"local","local":true}
