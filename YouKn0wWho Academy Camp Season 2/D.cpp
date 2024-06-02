@@ -11,49 +11,44 @@ using namespace std;
 int main()
 {
     MTK;
-    int N, M, L, Q;
-    cin >> N;
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) 
-        cin >> A[i];  
-
-    cin >> M;
-    vector<int> B(M);
-    for (int i = 0; i < M; i++)
-            cin >> B[i];
-
-    cin >> L;
-    vector<int> C(L);
-    for (int i = 0; i < L; i++)
-        cin >> C[i];
- 
-
-
-    cin >> Q;
-    vector<int> X(Q);
-    for (int i = 0; i < Q; i++)  
-        cin >> X[i];
-
-    unordered_set<ll> sumBC;
-    for (int i = 0; i < M; i++)
+    int n;
+    cin >> n;
+    int a[n + 1];
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
+    int m;
+    cin >> m;
+    int b[m + 1];
+    for (int i = 1; i <= m; i++)
+        cin >> b[i];
+    int l;
+    cin >> l;
+    int c[l + 1];
+    for (int i = 1; i <= l; i++)
+        cin >> c[i];
+    int q;
+    cin >> q;
+    int x[q + 1];
+    for (int i = 1; i <= q; i++)
+        cin >> x[i];
+    set<ll> se;
+    for (int i = 1; i <= n; i++)
     {
-        for (int j = 0; j < L; j++)      
-            sumBC.insert((ll)B[i] + C[j]);
-      
-    }
-
-    for (int i = 0; i < Q; i++)
-    {
-        bool found = false;
-        for (int j = 0; j < N; j++)
+        for (int j = 1; j <= m; j++)
         {
-            if (sumBC.count(X[i] - A[j]))
+            for (int k = 1; k <= l; k++)
             {
-                found = true;
-                break;
+                ll ans = (1LL*a[i] + b[j] + c[k]);
+                se.insert(ans);
             }
         }
-        cout << (found ? "Yes" : "No") << '\n';
+    }
+    for (int i = 1; i <= q; i++)
+    {
+        if (se.find(x[i]) != se.end())
+            cout << "Yes" << '\n';
+        else
+            cout << "No" << '\n';
     }
 
     return 0;

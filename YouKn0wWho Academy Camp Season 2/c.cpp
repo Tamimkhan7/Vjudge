@@ -13,25 +13,13 @@ using namespace std;
 int32_t main()
 {
     MTK;
-    int a, b, c, d;
+    ll a, b, c, d;
     cin >> a >> b >> c >> d;
-    ll x, y, p, q;
-    if (a < 0 and c < 0)
-        x = (1LL * (-a) * (-c));
-    else
-        x = 1LL * a * c;
-    if (a < 0 and d < 0)
-        y = (1LL * (-a) * (-d));
-    else
-        y = 1LL * a * d;
-    if (b < 0 and c < 0)
-        p = (1LL * (-b) * (-c));
-    else
-        p = (1LL * b * c);
-    if (b < 0 and d < 0)
-        q = (1LL * (-b) * (-d));
-    else
-        q = (1LL * b * d);
+
+    ll x = a * c;
+    ll y = a * d;
+    ll p = (b * c);
+    ll q = (b * d);
 
     cout << max(x, max(y, max(p, q))) << '\n';
     return 0;
