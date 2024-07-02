@@ -4,38 +4,25 @@ using namespace std;
     ios_base::sync_with_stdio(0); \
     cin.tie(0);                   \
     cout.tie(0);
-#define mem(a, b) memset(a, b, sizeof(a))
-#define trace(x) cout << #x << ' ' << x << endl
-#define all(x) (x).begin(), (x).end()
-#define ll int long long
-#define mod 1000000007
+#define ll long long
 
 int32_t main()
 {
     MTK;
-    int n, m;
+    ll n, m;
     cin >> n >> m;
-    ll div = m / n;
-    ll mo = m % n;
-    vector<ll> v;
-    for (int i = 1; i <= n; i++)
-        v.push_back(div);
-    v[v.size() - 1] += mo;
-    int ans = 0;
-    for (auto x : v)
-        ans = __gcd(1LL * ans, x);
-    int p = 1e3;
-    while (p-- and v[0] > 2)
+
+    ll maxGCD = 1;
+    for (ll k = 1; k * k <= m; ++k)
     {
-        v[0]--;
-        v[v.size() - 1]++;
-        int gcd;
-        for (auto x : v)
-            gcd = __gcd(1LL * gcd, x);
-        ans = max(1LL * gcd, 1LL * ans);
+        if (m % k == 0)
+        {
+            if (k * n <= m)
+                maxGCD = max(maxGCD, k);
+            if ((m / k) * n <= m)
+                maxGCD = max(maxGCD, m / k);
+        }
     }
-    // for (auto x : v)
-    //     cout << x << ' ';
-    // cout << '\n';
-    cout << ans << '\n';
+    cout << maxGCD << '\n';
+    return 0;
 }
