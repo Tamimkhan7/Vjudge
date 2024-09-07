@@ -1,0 +1,1 @@
+{"name":"Local: c","url":"/home/tamim/Desktop/Vjudge/Solo Speed Contest - 167/c.cpp","tests":[{"id":1725722926315,"input":"3\n2\n10 12\n2\n5 9\n3\n6 10 15","output":"2\n1\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tamim/Desktop/Vjudge/Solo Speed Contest - 167/c.cpp","group":"local","local":true}
