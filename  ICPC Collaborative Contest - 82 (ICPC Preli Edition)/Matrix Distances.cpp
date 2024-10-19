@@ -33,15 +33,34 @@ int32_t main()
     ll ans = 0;
     for (auto [x, y] : cnt)
     {
-        int n = y.size();
-        for (int i = 0; i < n; i++)
+        int sz = y.size();
+        vector<int> row(sz), col(sz);
+        for (int i = 0; i < sz; i++)
         {
-            int a = y[i].first, b = y[i].second;
-            for (int j = 0; j < n; j++)
-            {
-                int c = y[j].first, d = y[j].second;
-                ans += abs(a - c) + abs(b - d);
-            }
+            row[i] = y[i].first;
+            col[i] = y[i].second;
+        }
+        sort(all(row));
+        sort(all(col));
+
+        vector<ll> pref_row(sz + 1, 0);
+        for (int i = 0; i < sz; i++)
+            pref_row[i + 1] = pref_row[i] + row[i];
+
+        for (int i = 0; i < sz; i++)
+        {
+            ans += row[i] * i - pref_row[i];
+            ans += (pref_row[sz] - pref_row[i + 1]) - row[i] * (sz - i - 1);
+        }
+
+        vector<ll> pref_col(sz + 1, 0);
+        for (int i = 0; i < sz; i++)
+            pref_col[i + 1] = pref_col[i] + col[i];
+            
+        for (int i = 0; i < sz; i++)
+        {
+            ans += col[i] * i - pref_col[i];
+            ans += (pref_col[sz] - pref_col[i + 1]) - col[i] * (sz - i - 1);
         }
     }
     cout << ans << '\n';
