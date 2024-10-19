@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define MTK                       \
+    ios_base::sync_with_stdio(0); \
+    cin.tie(0);                   \
+    cout.tie(0);
+#define mem(a, b) memset(a, b, sizeof(a))
+#define show(x) cout << #x << ' ' << x << endl
+#define all(x) (x).begin(), (x).end()
+#define ll int long long
+#define mod 1000000007
+
+int32_t main()
+{
+    MTK;
+    int n, m;
+    cin >> n >> m;
+    int a[n + 1][m + 1];
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+            cin >> a[i][j];
+    }
+    map<int, vector<pair<int, int>>> cnt;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            int x = a[i][j];
+            cnt[x].push_back({i, j});
+        }
+    }
+    ll ans = 0;
+    for (auto [x, y] : cnt)
+    {
+        int n = y.size();
+        for (int i = 0; i < n; i++)
+        {
+            int a = y[i].first, b = y[i].second;
+            for (int j = 0; j < n; j++)
+            {
+                int c = y[j].first, d = y[j].second;
+                ans += abs(a - c) + abs(b - d);
+            }
+        }
+    }
+    cout << ans << '\n';
+    return 0;
+}
