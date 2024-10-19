@@ -56,7 +56,7 @@ int32_t main()
         vector<ll> pref_col(sz + 1, 0);
         for (int i = 0; i < sz; i++)
             pref_col[i + 1] = pref_col[i] + col[i];
-            
+
         for (int i = 0; i < sz; i++)
         {
             ans += col[i] * i - pref_col[i];
@@ -66,3 +66,5 @@ int32_t main()
     cout << ans << '\n';
     return 0;
 }
+
+// Tamim
