@@ -1,44 +1,76 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define MTK                       \
-    ios_base::sync_with_stdio(0); \
-    cin.tie(0);                   \
-    cout.tie(0);
-#define mem(a, b) memset(a, b, sizeof(a))
-#define show(x) cout << #x << ' ' << x << endl
-#define all(x) (x).begin(), (x).end()
-#define ll int long long
-#define mod 1000000007
-
-int32_t main()
+class Solution
 {
-    MTK;
-    int n, q;
-    cin >> n >> q;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
-    sort(all(v));
-    reverse(all(v));
-    vector<ll> pre(n);
-    pre[0] = v[0];
-    for (int i = 1; i < n; i++)
-        pre[i] = pre[i - 1] + v[i];
-    // for (auto x : pre)
-    //     cout << x << ' ';
-    // cout << '\n';
-    while (q--)
+public:
+    typedef long long ll;
+    ll countOfSubstrings(string word, int k)
     {
-        int x, y;
-        cin >> x >> y;
-        ll bad = x - y, div_val = 0;
+        int n = word.length();
+        int vow[5] = {0};
+        ll ans = 0, pre_vow = 0;
+        int cons = 0, i = 0, j = 0;
 
-        // show(bad);
-        ll val = pre[x - 1];
-        if (bad > 0)
-            div_val = pre[bad - 1];
-        // show(val), show(div_val);
-        cout << val - div_val << '\n';
+        while (j < n)
+        {
+
+            if (word[j] == 'a')
+                vow[0]++;
+            else if (word[j] == 'e')
+                vow[1]++;
+            else if (word[j] == 'i')
+                vow[2]++;
+            else if (word[j] == 'o')
+                vow[3]++;
+            else if (word[j] == 'u')
+                vow[4]++;
+            else
+                cons++;
+
+            while (cons > k)
+            {
+                pre_vow = 0;
+                if (word[i] == 'a')
+                    vow[0]--;
+                else if (word[i] == 'e')
+                    vow[1]--;
+                else if (word[i] == 'i')
+                    vow[2]--;
+                else if (word[i] == 'o')
+                    vow[3]--;
+                else if (word[i] == 'u')
+                    vow[4]--;
+                else
+                    cons--;
+                i++;
+            }
+
+            if (cons == k)
+            {
+                bool ok = (vow[0] > 0 and vow[1] > 0 and vow[2] > 0 and vow[3] > 0 and vow[4] > 0);
+
+                if (ok)
+                {
+                    while (cons == k and i <= j)
+                    {
+                        if (word[i] == 'a' and vow[0] > 1)
+                            vow[0]--;
+                        else if (word[i] == 'e' and vow[1] > 1)
+                            vow[1]--;
+                        else if (word[i] == 'i' and vow[2] > 1)
+                            vow[2]--;
+                        else if (word[i] == 'o' and vow[3] > 1)
+                            vow[3]--;
+                        else if (word[i] == 'u' and vow[4] > 1)
+                            vow[4]--;
+                        else
+                            break;
+                        i++;
+                        pre_vow++;
+                    }
+                    ans += pre_vow + 1;
+                }
+            }
+            j++;
+        }
+        return ans;
     }
-    return 0;
 };
